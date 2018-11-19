@@ -136,7 +136,7 @@ CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
         # 设置django缓存的数据保存在redis数据库中
-        "LOCATION": "redis://127.0.0.1:6379/5",
+        "LOCATION": "redis://192.168.1.15:6379/5",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
@@ -150,3 +150,12 @@ SESSION_CACHE_ALIAS = "default"
 
 # 配置登录地址
 LOGIN_URL = '/user/login'
+
+# 设置django的文件存储类
+DEFAULT_FILE_STORAGE = 'utils.fdfs.storage.FDFSStorage'
+
+# 设置fdfs使用的client.conf文件路径
+FDFS_CLIENT_CONF = './utils/fdfs/client.ini'
+
+# 设置fdfs存储服务器上nginx的ip和端口号
+FDFS_NGINX_URL = 'http://192.168.1.15:8888/'
